@@ -23,9 +23,7 @@ A dynamic, responsive social media dashboard inspired by TweetDeck, offering a f
 
 ### Frontend
 - React.js
-- React Hooks
-- React DnD (Drag and Drop)
-- date-fns (Date Formatting)
+
 
 ### Styling
 - CSS (with responsive design)
@@ -33,11 +31,11 @@ A dynamic, responsive social media dashboard inspired by TweetDeck, offering a f
 
 ### State Management
 - React useState and useEffect
-- Local Storage for Persistence
+
 
 ### Development Tools
 - Create React App
-<!-- - ESLint -->
+
 - Git
 
 ## Prerequisites
@@ -49,8 +47,8 @@ A dynamic, responsive social media dashboard inspired by TweetDeck, offering a f
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/likitd/social-media-dashboard.git
-cd social-media-dashboard
+git clone https://github.com/likitd/tweetdock.git
+cd tweetdock
 ```
 
 ### 2. Install Dependencies
@@ -58,11 +56,6 @@ cd social-media-dashboard
 npm install
 ```
 
-<!-- ### 3. Environment Variables
-Create a `.env` file in the root directory:
-```
-REACT_APP_MOCK_DATA=true  # Enable/disable mock data generation
-``` -->
 
 ### 4. Run the Application
 ```bash
@@ -74,7 +67,7 @@ The app will run on `http://localhost:3000`
 ## Code Structure
 
 ```
-social-media-dashboard/
+tweetdock/
 │
 ├── public/
 │   └── index.html
