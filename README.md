@@ -64,6 +64,12 @@ npm start
 
 The app will run on `http://localhost:3000`
 
+  ![Tweetdock](assets/tweet.png)
+  ![Tweetdock](assets/5.png)
+  ![Tweetdock](assets/add%20column%20(2).png)
+  ![Tweetdock](assets/dashboard.png)
+  ![Tweetdock](assets/theme.png)
+  ![Tweetdock](assets/tweet%20posted.png)
 ## Code Structure
 
 ```
