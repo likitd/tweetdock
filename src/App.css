@@ -1,0 +1,724 @@
+/* App.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.nav-expanded .main-content {
+  margin-left: 240px;
+}
+
+.nav-collapsed .main-content {
+  margin-left: 60px;
+}
+
+.main-content {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.columns-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 1rem;
+  min-height: calc(100vh - 60px);
+}
+
+.column {
+  min-width: 300px;
+  max-width: 350px;
+  height: fit-content;
+  max-height: calc(100vh - 80px);
+  margin-right: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.column-header {
+  padding: 0.8rem;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.column-controls {
+  display: flex;
+  align-items: center;
+}
+
+.column-filter {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.remove-column-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.remove-column-btn:hover {
+  color: #dc3545;
+}
+
+.posts-container {
+  padding: 0.5rem;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.post {
+  padding: 0.8rem;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 0.5rem;
+}
+
+.post:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.post-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.user-handle {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+.post-time {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+.post-content {
+  margin-bottom: 0.8rem;
+  word-wrap: break-word;
+}
+
+.post-actions {
+  display: flex;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  cursor: pointer;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.action-btn.active {
+  color: #e0245e;
+}
+
+.action-btn .icon {
+  margin-right: 0.3rem;
+}
+
+.like-btn.active {
+  color: #e0245e;
+}
+
+.retweet-btn.active {
+  color: #17bf63;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-width: 300px;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-header h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.cancel-btn, .add-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  margin-right: 0.5rem;
+}
+
+.add-btn {
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+}
+
+.add-btn:hover {
+  background-color: #0c85d0;
+}
+
+.no-posts {
+  padding: 1rem;
+  text-align: center;
+  color: #6c757d;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .nav-expanded .main-content,
+  .nav-collapsed .main-content {
+    margin-left: 0;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .columns-container {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  
+  .column {
+    min-width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    display: none;
+  }
+  
+  .column.active-column {
+    display: flex;
+  }
+}
+
+/* Navbar.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #15202b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.navbar.expanded {
+  width: 240px;
+}
+
+.navbar.collapsed {
+  width: 60px;
+}
+
+.navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #38444d;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.search-container {
+  padding: 1rem;
+  border-bottom: 1px solid #38444d;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: none;
+  background-color: #253341;
+  color: white;
+}
+
+.search-input::placeholder {
+  color: #8899a6;
+}
+
+.navigation {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+}
+
+.navigation ul {
+  list-style: none;
+}
+
+.navigation li {
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.navigation li:hover {
+  background-color: #192734;
+}
+
+.navigation li.active {
+  background-color: #1da1f2;
+}
+
+.navigation .icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.navbar-footer {
+  padding: 1rem;
+  border-top: 1px solid #38444d;
+}
+
+.add-column-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.add-column-btn:hover {
+  background-color: #192734;
+}
+
+.add-column-btn .icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.user-section {
+  position: relative;
+}
+
+.user-avatar {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+}
+
+.user-avatar:hover {
+  background-color: #192734;
+}
+
+.user-avatar .icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.user-menu {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #192734;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.5rem;
+}
+
+.user-menu ul {
+  list-style: none;
+}
+
+.user-menu li {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+}
+
+.user-menu li:hover {
+  background-color: #253341;
+}
+
+/* Media queries for responsive navbar */
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+    border-bottom: 1px solid #38444d;
+  }
+  
+  .navbar.expanded {
+    height: 100vh;
+    width: 240px;
+  }
+  
+  .navbar.collapsed {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+  
+  .toggle-btn {
+    display: none;
+  }
+}
+
+/* Theme Toggle Styles */
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.theme-icon {
+  margin: 0 0.5rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #1da1f2;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #1da1f2;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Tweet Button in Navbar */
+.tweet-btn-nav {
+  display: flex;
+  align-items: center;
+  background: #1da1f2;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.tweet-btn-nav:hover {
+  background-color: #0c85d0;
+}
+
+.tweet-btn-nav .icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+/* Tweet Modal Styles */
+.tweet-modal {
+  width: 90%;
+  max-width: 500px;
+}
+
+.tweet-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  resize: none;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.character-count {
+  text-align: right;
+  color: #6c757d;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.tweet-btn {
+  background-color: #1da1f2;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tweet-btn:disabled {
+  background-color: #9ad0f5;
+  cursor: not-allowed;
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+  background-color: #15202b;
+  color: #fff;
+}
+
+.dark-theme .app-header {
+  background-color: #1e2732;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .column {
+  background-color: #1e2732;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .column-header {
+  border-bottom: 1px solid #38444d;
+}
+
+.dark-theme .post {
+  border-bottom: 1px solid #38444d;
+}
+
+.dark-theme .column-filter {
+  background-color: #253341;
+  color: #fff;
+  border: 1px solid #38444d;
+}
+
+.dark-theme .modal {
+  background-color: #1e2732;
+  color: #fff;
+}
+
+.dark-theme .form-group select,
+.dark-theme .tweet-textarea {
+  background-color: #253341;
+  color: #fff;
+  border: 1px solid #38444d;
+}
+
+.dark-theme .cancel-btn {
+  background-color: #38444d;
+  color: #fff;
+  border: 1px solid #38444d;
+}
+
+.dark-theme .user-menu {
+  background-color: #253341;
+  border: 1px solid #38444d;
+}
+
+.dark-theme .no-posts {
+  color: #8899a6;
+}
